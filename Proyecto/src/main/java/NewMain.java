@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -14,6 +16,27 @@ public class NewMain {
         Si es 8 arriba
         Si es 2 abajo
     */
+    
+        public static List movimientosPosiblesMatriz(String [][] matriz, int posicionX, int posicionY ){
+            List<String> listaPosibles = new ArrayList<String>();
+            if ((posicionX+1 >= 0)&& (posicionX+1 < matriz.length)){
+                listaPosibles.add(matriz[posicionX+1][posicionY]);
+            }
+                
+            if ((posicionX-1 >= 0)&& (posicionX-1 < matriz.length)){
+                listaPosibles.add(matriz[posicionX-1][posicionY]);
+            }
+                
+            if ((posicionY+1 >= 0)&& (posicionY+1 < matriz[0].length)){
+                listaPosibles.add(matriz[posicionX][posicionY+1]);
+            }
+                
+            if ((posicionY-1 >= 0)&& (posicionY-1 < matriz[0].length)){
+                listaPosibles.add(matriz[posicionX][posicionY-1]);
+            }
+            return listaPosibles;
+        
+    }
     
     public static void movimientoMatriz(String [][] matriz){
         // Posicion del tanque principal
