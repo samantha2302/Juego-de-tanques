@@ -21,7 +21,16 @@ public class Funcion{
                                 {"a3", "b3","c3","d3","e3", "f3", "g3","h3", "i3", "j3"},
                                 {"a4", "b4","c4","d4","e4", "f4", "g4","h4", "i4", "j4"},
                                 {"a5", "b5","c5","d5","e5", "f5", "g5","h5", "i5", "j5"}};
-    
+    /**
+     * 
+     * @param matriz
+     * @param nombreT1
+     * @param nombreT2
+     * @param nombreT3
+     * @return 
+     * 
+     * Convierte la matriz en ceros.
+     */
     public static String matrizCeros(String[][] matriz, String nombreT1, String nombreT2, String nombreT3){
         String resultado;
         resultado="";
@@ -41,6 +50,16 @@ public class Funcion{
         return resultado;
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param primerObjeto
+     * @param segundoObjeto
+     * @param tercerObjeto
+     * @return 
+     * 
+     * Cuenta los objetos, en este caso los objetivos 
+     */
     public static int contarObjetos(String[][] matriz, String primerObjeto, String segundoObjeto, String tercerObjeto){
         int resultado=0;
         int i, j;
@@ -54,6 +73,16 @@ public class Funcion{
     return resultado;
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param matrizBoton
+     * @param panel
+     * @param nombreT1
+     * @param nombreT2
+     * @param nombreT3 
+     * 
+     */
     public static void matrizBotones(String[][] matriz, JButton[][] matrizBoton, JPanel panel, String nombreT1, String nombreT2, String nombreT3){
         if (panel.getComponentCount() > 0){
             removerBotonesPanel(matriz, matrizBoton, panel);
@@ -148,6 +177,14 @@ public class Funcion{
        }
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param matrizBoton
+     * @param panel 
+     * 
+     * Para remover botones del panel 
+     */
     public static void removerBotonesPanel(String[][] matriz, JButton[][] matrizBoton, JPanel panel){
         int i, j;
         for (i = 0; i < matriz.length; i++) { 
@@ -169,6 +206,20 @@ public class Funcion{
         return resultado;
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param posicion
+     * @param botonAbajo
+     * @param botonArriba
+     * @param botonDerecha
+     * @param botonIzquierda
+     * @param nombreT1
+     * @param nombreT2
+     * @param nombreT3 
+     * 
+     * Para revisar si el siguiente movimiento es valido para los botones.
+     */
     public static void revisarMovimientosValidosBotones(String [][] matriz, String posicion, 
             JButton botonAbajo,JButton botonArriba,JButton 
                     botonDerecha,JButton botonIzquierda,String nombreT1, String nombreT2,String nombreT3){
@@ -206,6 +257,20 @@ public class Funcion{
         }
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param posicion
+     * @param botonAbajo
+     * @param botonArriba
+     * @param botonDerecha
+     * @param botonIzquierda
+     * @param nombreT1
+     * @param nombreT2
+     * @param nombreT3 
+     * 
+     * Revisa si es valido el siguiente disparo.
+     */
     public static void revisarDisparosValidosBotones(String [][] matriz, String posicion, 
             JButton botonAbajo,JButton botonArriba,JButton 
                     botonDerecha,JButton botonIzquierda,String nombreT1, String nombreT2,String nombreT3){
@@ -247,7 +312,15 @@ public class Funcion{
             }
         }
     }
-    
+    /**
+     * 
+     * @param botonAbajo
+     * @param botonArriba
+     * @param botonDerecha
+     * @param botonIzquierda 
+     * 
+     * Desactiva los botones.
+     */
     public static void desactivarBotones(JButton botonAbajo,JButton botonArriba,JButton botonDerecha,JButton botonIzquierda){
         botonAbajo.setEnabled(false);
         botonArriba.setEnabled(false);
@@ -257,6 +330,21 @@ public class Funcion{
     
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    /**
+     * 
+     * @param matriz
+     * @param posicion
+     * @param opcion
+     * @param botonAbajo
+     * @param botonArriba
+     * @param botonIzquierda
+     * @param botonDerecha
+     * @param nombreT1
+     * @param nombreT2
+     * @param nombreT3 
+     * 
+     * Activa los botones cuando verifica si es valido,
+     */
     public static void realizarMovimientoBotones(String [][] matriz, String posicion, int opcion,JButton botonAbajo,JButton botonArriba,
             JButton botonIzquierda,JButton botonDerecha,String nombreT1, String nombreT2, String nombreT3){
         
@@ -311,6 +399,15 @@ public class Funcion{
         
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param opcion
+     * @param posicion
+     * @return 
+     * 
+     * Busca la posicion deseada
+     */
     public static int buscarFilaColumnaPosicion(String [][] matriz, int opcion, String posicion){
         int i, j;
         for (i = 0; i < matriz.length; i++) { 
@@ -327,6 +424,15 @@ public class Funcion{
     }
     
     //////////////////////////////
+    
+    /**
+     * 
+     * @param matriz
+     * @param opcion
+     * @return 
+     * 
+     * Busca la cantidad deseada por fila y columna
+     */
     public static int buscarFilaColumnaCantidad(String [][] matriz, int opcion){
         int i, j = 0;
         for (i = 0; i < matriz.length; i++) { 
@@ -344,6 +450,15 @@ public class Funcion{
         
     ///////////////////////////////
     
+    /**
+     * 
+     * @param matriz
+     * @param posicionX
+     * @param posicionY
+     * @return 
+     * 
+     * Revisa los posibles movimientos en la matriz del juego, en este caso, campo de batalla
+     */
     public static List movimientosPosiblesMatriz(String [][] matriz, int posicionX, int posicionY ){
             List<String> listaPosibles = new ArrayList<String>();
             if ((posicionX+1 >= 0)&& (posicionX+1 < matriz.length)){
@@ -365,6 +480,27 @@ public class Funcion{
         
     }
     
+    /**
+     * 
+     * @param matriz
+     * @param matrizSinTanques
+     * @param tanque1
+     * @param tanque2
+     * @param tanque3
+     * @param cantidadMovimientoTanque1
+     * @param cantidadMovimientoTanque2
+     * @param cantidadMovimientoTanque3
+     * @param textoEdificiosDestruidos
+     * @param textoEdificiosRestantes
+     * @param textoMovimientosArmada
+     * @param textoCantidadTanquesRestantes
+     * @param textoVida
+     * @param opcion
+     * @param numeroJuego
+     * @param ventanaJuego 
+     * 
+     * Actualiza las vidas, movimientos, y cuantas armadas ha realizado.
+     */
     public static void actualizarLabelMovimientoArmada (String[][] matriz, String[][] matrizSinTanques,String tanque1, String tanque2, String tanque3,
             int cantidadMovimientoTanque1, int cantidadMovimientoTanque2, 
             int cantidadMovimientoTanque3,

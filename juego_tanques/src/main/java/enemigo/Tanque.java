@@ -4,7 +4,13 @@ public class Tanque {
     private String tipo;
     private String nombre;
     private int cantidadMovimiento;
-
+    
+    /**
+     * 
+     * @param tipo
+     * @param nombre
+     * @param cantidadMovimiento 
+     */
     public Tanque(String tipo, String nombre, int cantidadMovimiento) {
         this.tipo = tipo;
         this.nombre = nombre;

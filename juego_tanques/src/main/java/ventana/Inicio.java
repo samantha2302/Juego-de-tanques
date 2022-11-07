@@ -5,7 +5,11 @@
 package ventana;
 
 import java.awt.Dimension;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -17,8 +21,9 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form inicio
      */
     public Inicio() {
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         initComponents();
+       
     }
     
     public static void desactivarBoton(){
@@ -47,8 +52,11 @@ public class Inicio extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         botonInicio = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        escritorio.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
         jLabel1.setText("Juego de tanques");
@@ -61,31 +69,41 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel2.setText("Creadores: Warren y Samantha");
+
         escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(botonInicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap(218, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(215, 215, 215))
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(escritorioLayout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel1))
+                        .addGap(331, 331, 331)
+                        .addComponent(botonInicio))
                     .addGroup(escritorioLayout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(botonInicio)))
-                .addContainerGap(221, Short.MAX_VALUE))
+                        .addGap(319, 319, 319)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(115, 115, 115)
                 .addComponent(jLabel1)
-                .addGap(67, 67, 67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                 .addComponent(botonInicio)
-                .addContainerGap(587, Short.MAX_VALUE))
+                .addGap(97, 97, 97)
+                .addComponent(jLabel2)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,11 +123,9 @@ public class Inicio extends javax.swing.JFrame {
     private void botonInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioActionPerformed
         // TODO add your handling code here:
         Indicacion indicacion = new Indicacion();
-        //escritorio.add(indicacion);
-        //indicacion.toFront();
-        //indicacion.setVisible(true);
         agregarEnEscritorio(indicacion);
         desactivarBoton();
+        indicacion.setLocation(120, 100);
     }//GEN-LAST:event_botonInicioActionPerformed
 
 
@@ -117,5 +133,6 @@ public class Inicio extends javax.swing.JFrame {
     public static javax.swing.JButton botonInicio;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

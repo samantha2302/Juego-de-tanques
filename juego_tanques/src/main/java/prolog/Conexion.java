@@ -9,6 +9,15 @@ import movimiento.Funcion;
 import org.jpl7.Query;
 
 public class Conexion {
+    
+    /**
+     * 
+     * @param matriz
+     * @param posicionX
+     * @param posicionY
+     * @return 
+     * 
+     */
     public static List movimientosPrologMatriz(String [][] matriz, int posicionX, int posicionY ){
             List<String> listaPosibles = new ArrayList<String>();
             if ((posicionX+1 >= 0)&& (posicionX+1 < matriz.length) && (matriz[posicionX+1][posicionY] != "X")){
@@ -30,6 +39,12 @@ public class Conexion {
         
     }
     
+    /**
+     * 
+     * @param matriz 
+     * 
+     * Crea la conexion de conectados 
+     */
     public static void crearConectadosProlog(String[][] matriz){
         String t1="consult('src/main/java/prolog/conectados.pl')";
         Query conexion = new Query (t1);
@@ -51,6 +66,16 @@ public class Conexion {
        }
     }
     
+    /**
+     * 
+     * @param matrizJuego
+     * @param matrizSinTanques
+     * @param posicionFila
+     * @param posicionColumna
+     * @return 
+     * 
+     * Revisa donde se encuentra el tanque principal controlado por el usuario. 
+     */
     public static int revisarPosicionJugador(String [][] matrizJuego, String[][] matrizSinTanques, int posicionFila, int posicionColumna){
         if ((posicionFila+1 >= 0)&& (posicionFila+1 < matrizJuego.length) &&(matrizJuego[posicionFila+1][posicionColumna]=="t")){
                 int posicionFilaJugadorAntigua=Funcion.buscarFilaColumnaPosicion(matrizJuego, 0,"t");
@@ -123,6 +148,16 @@ public class Conexion {
         return 0;
     }
     
+    /**
+     * 
+     * @param tanqueBuscado
+     * @param tanque2
+     * @param tanque3
+     * @param encontrar
+     * @return 
+     * 
+     * Busca una ruta depende de la armada presente.
+     */
     public static List rutaMovimientoArmada(String tanqueBuscado, String tanque2, String tanque3, String encontrar){
        String consultar="consult('src/main/java/prolog/conectados.pl')";
        Query conexion = new Query (consultar);
@@ -145,6 +180,17 @@ public class Conexion {
        return listaRuta;
     }
     
+    /**
+     * 
+     * @param matrizJuego
+     * @param matrizSinTanques
+     * @param tanque
+     * @param ruta
+     * @param resultado
+     * @return 
+     * 
+     * Realiza los movimientos nuevos de la armada 
+     */
     public static int realizarMovimientoArmada(String [][] matrizJuego, String[][] matrizSinTanques,
             String tanque, String ruta, int resultado){
         int posicionFilaTanqueAntigua=Funcion.buscarFilaColumnaPosicion(matrizJuego, 0,tanque);
@@ -166,6 +212,20 @@ public class Conexion {
         return 0;
     }
     
+    /**
+     * 
+     * @param matrizJuego
+     * @param matrizSinTanques
+     * @param textoVida
+     * @param tanque1
+     * @param tanque2
+     * @param tanque3
+     * @param cantidadMovimientoTanque1
+     * @param cantidadMovimientoTanque2
+     * @param cantidadMovimientoTanque3 
+     * 
+     * Mueve la armada 
+     */
     public static void moverArmada(String[][] matrizJuego, String[][] matrizSinTanques, JLabel textoVida, String tanque1, 
             String tanque2, String tanque3, int cantidadMovimientoTanque1, int cantidadMovimientoTanque2, 
             int cantidadMovimientoTanque3){

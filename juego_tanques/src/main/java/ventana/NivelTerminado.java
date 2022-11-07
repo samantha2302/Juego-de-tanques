@@ -16,6 +16,7 @@ public class NivelTerminado extends javax.swing.JDialog {
     public NivelTerminado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.setLocationRelativeTo(null);
+        this.setLocation(550, 250);
         initComponents();
         labelTerminar.setVisible(false);
     }
